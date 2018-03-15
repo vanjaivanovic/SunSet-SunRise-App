@@ -1,29 +1,29 @@
-body{
-	background-image: url("../images/sun.jpg");
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	margin: 0;
-	padding: 0;
+body {
+    background-image: url("../images/sun.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
 }
 
-header{
-	margin-bottom: 50px;
-	margin-top: 220px;
+header {
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
-header h1{
-	color: white;
-	text-align: center;
-	font-size: 6em;
+header h1 {
+    color: white;
+    text-align: center;
+    font-size: 6em;
 }
 
-#CurrentPosition{
-	padding: 20px;
-	padding-left: 32px;
-	text-align: center;
-	background: black;
+#CurrentPosition {
+    padding: 20px;
+    padding-left: 32px;
+    text-align: center;
+    background: black;
     opacity: 0.45;
     border: none;
     color: white;
@@ -31,10 +31,10 @@ header h1{
     margin-bottom: 10px;
 }
 
-#searchCity{
-	padding: 20px;
-	text-align: center;
-	background: black;
+#searchCity {
+    padding: 20px;
+    text-align: center;
+    background: black;
     opacity: 0.45;
     border: none;
     color: white;
@@ -42,11 +42,11 @@ header h1{
     margin-bottom: 10px;
 }
 
-#calender{
-	padding: 20px;
-	padding-left: 95px;
-	text-align: center;
-	background: black;
+#calender {
+    padding: 20px;
+    padding-left: 95px;
+    text-align: center;
+    background: black;
     opacity: 0.45;
     border: none;
     color: white;
@@ -54,10 +54,10 @@ header h1{
     margin-bottom: 10px;
 }
 
-#selectDate{
-	padding: 20px;
-	text-align: center;
-	background: black;
+#selectDate {
+    padding: 20px;
+    text-align: center;
+    background: black;
     opacity: 0.45;
     border: none;
     color: white;
@@ -65,10 +65,10 @@ header h1{
     margin-bottom: 10px;
 }
 
-#sunInfo{
-	padding: 50px;
-	text-align: center;
-	background: black;
+#sunInfo {
+    padding: 50px;
+    text-align: center;
+    background: black;
     opacity: 0.45;
     border: none;
     color: white;
@@ -76,12 +76,6 @@ header h1{
 }
 
 input::placeholder {
-	color: white;
+    color: white;
 }
 
-@media (min-width: 576px) {
-	header{
-	    margin-top: 50px;
-	}
-
-}

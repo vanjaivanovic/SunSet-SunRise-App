@@ -1,9 +1,4 @@
-
-
-
 google.maps.event.addDomListener(window, 'load', initialize);
-
- 
 
 function initialize() {
 
@@ -16,28 +11,23 @@ function initialize() {
 
         getsunlocation(latitude, longitude);
 
-        
-        selectDateButton.onclick = function selectDate() {
-          var date = document.getElementById('calender').value;
-          getDate(latitude, longitude, date);
-          console.log(date);
-
-        }
+          selectDateButton.onclick = function selectDate() {
+              var date = document.getElementById('calender').value;
+              getDate(latitude, longitude, date);
+          }
     });
 };
 
 
-function getsunlocation(latitude, longitude){
-  fetch(`https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}`)
-    .then((response) => response.json())
-    .then((sunData) =>  {
-      console.log(sunData)
-      displaySunData(sunData);
-
-    })
-    .catch((error) => {
-      console.log(error);
-    })
+function getsunlocation(latitude, longitude) {
+    fetch(`https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}`)
+        .then((response) => response.json())
+        .then((sunData) => {
+            displaySunData(sunData);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
 }
 
 
@@ -47,7 +37,7 @@ var errormessage = document.getElementById("positionError");
 button.onclick = function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
+    } else {
         errormessage.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
@@ -57,69 +47,60 @@ function showPosition(position) {
     var longitude = position.coords.longitude;
 
     getSun(latitude, longitude);
-     function selectDate() {
+
+      function selectDate() {
           var date = document.getElementById('calender').value;
           getDate(latitude, longitude, date);
-          console.log(date);
-
-        }
-
-        selectDate();
+      }
+      selectDate();
 }
 
-// Expects a parameter!!!
-function getSun(latitude, longitude){
-  fetch(`https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}`)
-    .then((response) => response.json())
-    .then((sunData) =>  {
-      console.log(sunData)
-      displaySunData(sunData);
 
-    })
-    .catch((error) => {
-      console.log(error);
-    })
+function getSun(latitude, longitude) {
+    fetch(`https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}`)
+        .then((response) => response.json())
+        .then((sunData) => {
+            displaySunData(sunData);
+
+        })
+        .catch((error) => {
+            console.log(error);
+        })
 }
 
-function displaySunData(sunData){
-  const { results } = sunData;
-  const sunInfoElement = document.getElementById('sunInfo');
-  let sunInfo = `
+function displaySunData(sunData) {
+    const { results } = sunData;
+    const sunInfoElement = document.getElementById('sunInfo');
+    let sunInfo = `
+      <p> Sun rises at: ${results.sunrise} </p>
+      <p> Sun sets at: ${results.sunset} </p>
+      <p> Day lenght: ${results.day_length}</p>
+    `;
+    sunInfoElement.innerHTML = sunInfo;
+}
 
-    <p> Sun rises at: ${results.sunrise} </p>
-
-    <p> Sun sets at: ${results.sunset} </p>
-
- 
-
-  `;
-  sunInfoElement.innerHTML = sunInfo; 
-} 
-
-function getDate(latitude, longitude, date){
-  fetch(`https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&date=${date}`)
-    .then((response) => response.json())
-    .then((sunData) =>  {
-      console.log(sunData)
-      displaySunData(sunData);
-
-    })
-    .catch((error) => {
-      console.log(error);
-    })
+function getDate(latitude, longitude, date) {
+    fetch(`https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&date=${date}`)
+        .then((response) => response.json())
+        .then((sunData) => {
+            displaySunData(sunData);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
 }
 
 var today = new Date();
 var dd = today.getDate();
-var MM = today.getMonth()+1; //January is 0!
+var MM = today.getMonth() + 1; //January is 0!
+
 
 var yyyy = today.getFullYear();
-if(dd<10){
-   dd='0'+dd;
-} 
-if(MM<10){
-   MM='0'+MM;
-} 
-var today = yyyy+'-'+MM+'-'+dd;
+  if (dd < 10) {
+      dd = '0' + dd; //om dagens datum är mindre än 10:e, lägg en 0 före siffran under 10.
+  }
+  if (MM < 10) {
+      MM = '0' + MM; //även här lägg en 0 före siffran under 10:e månaden.
+  }
+var today = yyyy + '-' + MM + '-' + dd;
 document.getElementById("calender").value = today;
-
