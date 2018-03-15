@@ -15,6 +15,7 @@ function initialize() {
         var long = "<b>Longitude</b>" + place.geometry.location.lng();
         var latitude = place.geometry.location.lat();
         var longitude = place.geometry.location.lng();
+        var selectDateButton = document.getElementById('selectDate');
  
         document.getElementById('adressResult').innerHTML = location;
         document.getElementById('latitudeResult').innerHTML = lat
@@ -22,14 +23,15 @@ function initialize() {
 
         getsunlocation(latitude, longitude);
 
-        function selectDate() {
+        
+        selectDateButton.onclick = function selectDate() {
           var date = document.getElementById('calender').value;
           getDate(latitude, longitude, date);
           console.log(date);
 
         }
 
-        selectDate();
+        
 
 
 
@@ -93,8 +95,6 @@ function getSun(latitude, longitude){
 }
 
 function displaySunData(sunData){
-  // const main = weatherData.main;
-  //const weather = weatherData.weather;
   const { results } = sunData;
   const sunInfoElement = document.getElementById('sunInfo');
   let sunInfo = `
