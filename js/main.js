@@ -22,9 +22,21 @@ function initialize() {
 
         getsunlocation(latitude, longitude);
 
+        function selectDate() {
+          var date = document.getElementById('calender').value;
+          getDate(latitude, longitude, date);
+          console.log(date);
+
+        }
+
+        selectDate();
+
+
+
  
     });
 };
+
 
 function getsunlocation(latitude, longitude){
   fetch(`https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}`)
@@ -56,6 +68,14 @@ function showPosition(position) {
     var longitude = position.coords.longitude;
 
     getSun(latitude, longitude);
+     function selectDate() {
+          var date = document.getElementById('calender').value;
+          getDate(latitude, longitude, date);
+          console.log(date);
+
+        }
+
+        selectDate();
 }
 
 // Expects a parameter!!!
@@ -88,5 +108,18 @@ function displaySunData(sunData){
   `;
   sunInfoElement.innerHTML = sunInfo; 
 } 
+
+function getDate(latitude, longitude, date){
+  fetch(`https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&date=${date}`)
+    .then((response) => response.json())
+    .then((sunData) =>  {
+      console.log(sunData)
+      displaySunData(sunData);
+
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+}
 
 
