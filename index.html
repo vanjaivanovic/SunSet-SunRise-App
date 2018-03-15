@@ -1,51 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Sun</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBw0MIypLnDtsAuC9ZIBD0TnMuhhZ_53OM&libraries=geomatry,places"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Sun</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBw0MIypLnDtsAuC9ZIBD0TnMuhhZ_53OM&libraries=geomatry,places"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 
 <body>
-<header>
-	<h1>Sunrise & Sunset</h1>
-</header>
-
-<main>
-	<div class="container">
-		<div class="row">
-		<button class= "col-xs-offset-3 col-xs-6" id= "CurrentPosition"> Current position </button></div>
-
-	<div class="row">
-	<input class="col-xs-offset-3 col-xs-6" id="searchCity" type="text" name="City" placeholder="Search location"></div>
-
-	<div class="row">
-	<input class= "col-xs-offset-3 col-xs-6" type="date" id="calender"></div>
-
-	<div class="row">
-	<button class= "col-xs-offset-3 col-xs-6" id ="selectDate">Select date</button></div>
-
-	<div class="row">
-	<div class="col-xs-offset-3 col-xs-6" id="sunInfo">
-	
-<p id= "positionError"></p> 
-
-
-     </div>
-     </div>
-
-
-
-</main>
-
-
-
-	<script src="js/main.js"></script>
-	
-
+    <header>
+        <h1>Sunrise & Sunset</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <button class="col-xs-offset-3 col-xs-6" id="CurrentPosition"> Current position </button>
+            </div>
+            <div class="row">
+                <input class="col-xs-offset-3 col-xs-6" id="searchCity" type="text" name="City" placeholder="Search location">
+            </div>
+            <div class="row">
+                <input class="col-xs-offset-3 col-xs-6" type="date" id="calender">
+            </div>
+            <div class="row">
+                <button class="col-xs-offset-3 col-xs-6" id="selectDate">Select date</button>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-3 col-xs-6" id="sunInfo">
+                    <p id="positionError"></p>
+                </div>
+                <!--stänger sunInfo-->
+            </div>
+            <!--stänger row-->
+        </div>
+        <!--stänger container-->
+    </main>
+    <script src="js/main.js"></script>
 </body>
+
 </html>
-
-
