@@ -10,16 +10,9 @@ function initialize() {
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('searchCity'));
     google.maps.event.addListener(autocomplete, 'place_changed', function() {
         var place = autocomplete.getPlace();
-        var location = "<b>Adress</b>: " + place.formatted_address + "<br/>";
-        var lat = "<b>Latitude</b>" + place.geometry.location.lat(); + "<br/>";
-        var long = "<b>Longitude</b>" + place.geometry.location.lng();
         var latitude = place.geometry.location.lat();
         var longitude = place.geometry.location.lng();
         var selectDateButton = document.getElementById('selectDate');
- 
-        document.getElementById('adressResult').innerHTML = location;
-        document.getElementById('latitudeResult').innerHTML = lat
-        document.getElementById('longitudeResult').innerHTML = long;
 
         getsunlocation(latitude, longitude);
 
@@ -30,12 +23,6 @@ function initialize() {
           console.log(date);
 
         }
-
-        
-
-
-
- 
     });
 };
 
