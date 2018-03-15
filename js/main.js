@@ -1,3 +1,45 @@
+var googleKey = "AIzaSyBw0MIypLnDtsAuC9ZIBD0TnMuhhZ_53OM";
+
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+ 
+
+function initialize() {
+
+    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('searchCity'));
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+        var place = autocomplete.getPlace();
+        var location = "<b>Adress</b>: " + place.formatted_address + "<br/>";
+        var latitude = "<b>Latitude</b>" + place.geometry.location.lat(); + "<br/>";
+        var longitude = "<b>Longitude</b>" + place.geometry.location.lng();
+        var lat = place.geometry.location.lat();
+        var long = place.geometry.location.lng();
+ 
+        document.getElementById('adressResult').innerHTML = location;
+
+        document.getElementById('latitudeResult').innerHTML = latitude;
+
+        document.getElementById('longitudeResult').innerHTML = longitude;
+
+ 
+
+        console.log(location);
+
+        console.log(latitude);
+
+        console.log(longitude);
+
+        console.log(UTCoffset);
+
+        getsunlocation(lat, long);
+
+ 
+    });
+
+ 
+
+};
 var button = document.getElementById("CurrentPosition");
 var errormessage = document.getElementById("positionError");
 
