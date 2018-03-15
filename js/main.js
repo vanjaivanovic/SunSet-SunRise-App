@@ -1,17 +1,24 @@
-/*const searchCity = document.getElementById('searchCity');
-const weatherParam = 'weather';
+var button = document.getElementById("CurrentPosition");
+var errormessage = document.getElementById("positionError");
 
-searchCity.addEventListener('change', () => {
-  const searchValue = searchCity.value;
-  getTodaysWeather(searchValue);
-})
-*/
+button.onclick = function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        errormessage.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
 
-getTodaysWeather();
+function showPosition(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+
+    getSun(latitude, longitude);
+}
 
 // Expects a parameter!!!
-function getTodaysWeather(){
-  fetch(`https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400`)
+function getSun(latitude, longitude){
+  fetch(`https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}`)
     .then((response) => response.json())
     .then((sunData) =>  {
       console.log(sunData)
