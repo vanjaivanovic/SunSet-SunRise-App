@@ -109,4 +109,17 @@ function getDate(latitude, longitude, date){
     })
 }
 
+var today = new Date();
+var dd = today.getDate();
+var MM = today.getMonth()+1; //January is 0!
+
+var yyyy = today.getFullYear();
+if(dd<10){
+   dd='0'+dd;
+} 
+if(MM<10){
+   MM='0'+MM;
+} 
+var today = yyyy+'-'+MM+'-'+dd;
+document.getElementById("calender").value = today;
 
